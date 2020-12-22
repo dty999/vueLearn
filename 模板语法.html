@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="lib/vue.js" type="text/javascript" charset="utf-8"></script>
+	<title></title>
+</head>
+<body>
+	<div id="box">
+		{{name}}
+		<button @click = 'handleClick()'>change</button>
+	</div>
+</body>
+<script>
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			name:'dty'
+		},
+		methods:{
+			handleClick(){
+				this.name = '大明'
+			}
+		}
+	})
+</script>
+</html>
