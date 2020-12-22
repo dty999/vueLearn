@@ -22,7 +22,11 @@
             {{item}}--{{key}}--{{index}}
         </div>
         <hr>
-        <div v-for = '(item,key,index) of 10'>
+        <div v-for = '(item,index) of 10'>
+            {{item}}--{{key}}--{{index}}
+        </div>
+        <hr>
+        <div v-for = '(item,index) of arr'>
             {{item}}--{{key}}--{{index}}
         </div>
         <!-- v-for in/of 两种方式没区别 -->
@@ -37,7 +41,8 @@
                 name:'dty',
                 age:12,
                 socre:99
-            }
+            },
+            arr:['a','b']
         },
         methods: {}
      });
