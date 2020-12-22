@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        .active {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="(item,index) in Lists" @click='handleClick(index)'
+                :class="hight===index ? 'active':''">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                Lists: ['1', '22', '333'],
+                hight: 0,
+            },
+            methods: {
+                handleClick(index) {
+                    this.hight = index
+                }
+            }
+        });
+    </script>
+
+<!-- 我的实现 -->
+    <!-- <div id="box">
+        <ul>
+            <li v-for="(item,index) in Lists" @click='handleClick(index)'
+                :class="hight[index] ? 'active':''">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                Lists: ['1', '22', '333'],
+                hight: [true,false,false],
+            },
+            methods: {
+                handleClick(index) {
+                    for(key in this.hight){
+                        this.hight[key] = false
+                        console.log(this.hight[key]);
+                    }
+                    this.hight[index] = true
+                    console.log(this.hight[index]);
+                    this.hight.push('')
+                    this.hight.pop()
+                }
+            }
+        });
+    </script> -->
+</body>
+
+</html>

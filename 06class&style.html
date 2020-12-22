@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        .a {}
+
+        .b {}
+
+        .c {}
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div :class="classObj">动态切换class-对象写法</div>
+        <div :class="classArr">动态切换class-数组写法</div>
+
+        <div :style="styleObj">动态切换style-对象写法</div>
+        <div :style="styleArr">动态切换style-数组写法</div>
+        <!-- 数组写法直接push/pop就可以新增和删除 -->
+        <!-- 对象写法得用另外的方法新增删除 -->
+    </div>
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                classObj: {
+                    a: true,
+                    b: true,
+                    c: true
+                },
+                classArr:['11','22'],
+                styleObj:{
+                    color:'red',
+                },
+                styleArr:[{color:"green"}]
+            },
+            methods: {}
+        });
+        // Vue.set(vm.styleObj,"font-size",'30px')
+    </script>
+</body>
+
+</html>
