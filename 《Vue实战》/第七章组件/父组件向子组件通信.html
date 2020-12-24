@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <child :message='信息' :打钱='钱数'></child>
+
+    </div>
+
+    <script>
+        Vue.component('child', {
+            template: '<div>{{message}} {{打钱}}</div>',
+            props: {
+                message: String,
+                打钱: {
+                    type: Number,
+                    default: 100
+                }
+            },
+        })
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                信息: '你好吗?',
+                钱数: 24444
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

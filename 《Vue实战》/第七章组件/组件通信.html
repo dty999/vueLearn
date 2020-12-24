@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <cpn @sonclick='handleSonClick'></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <button v-for="item in lists" @click='handleClick(item.id)'>{{ item.name}}</button>
+        </div>
+    </template>
+    <script>
+        const cpn = {
+            template : '#cpn',
+            data(){
+                return{
+                    lists:[
+                        {id:1,name:'apple'},
+                        {id:11,name:'banner'},
+                        {id:111,name:'orgin'}
+                    ]
+                }
+            },
+            methods: {
+                handleClick(id){
+                    this.$emit('sonclick',id)
+                    // console.log(id);
+                }  
+            },
+        }
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            handleSonClick(id){
+                console.log(id);
+            }
+        },
+        components:{
+            cpn:cpn
+        }
+     });
+    </script>
+</body>
+
+</html>

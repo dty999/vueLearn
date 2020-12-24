@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component>
+            
+        </my-component>
+    </div>
+
+    <script>
+        // Vue.component('my-component',{
+        //     template:'<div>这里是组件的内容</div>'
+        // })
+        var Child = {
+            template: '<div>第二层组件{{message}}</div>',
+            data: function () {
+                return {
+                    message: '第二层数据'
+                }
+            }
+        }
+        Vue.component('my-component', {
+            template: '<div>第一层组件{{message}}<child-component></child-component></div>',
+            components: {
+                'child-component': Child
+            },
+            data:function(){
+                return {
+                    message:'第一层组件的message'
+                }
+            }
+        })
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            // components: {
+            //     'my-component': Child
+            // }
+        });
+
+    </script>
+</body>
+
+</html>
