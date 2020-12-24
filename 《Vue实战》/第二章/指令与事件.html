@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <a v-bind:href = 'url' :style = 'show'>链接</a>
+        <img v-bind:src = 'srcc'/>
+        <button @click = 'handleClick'>按我</button>
+    </div>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {
+            show : 'display:none',
+            url:'https://www.baidu.com',
+            srcc:'https://imgpolitics.gmw.cn/attachement/jpg/site2/20201224/f44d305ea48e214e392645.jpg'
+        },
+        methods: {
+            handleClick(){
+                this.show = 'display:black;'
+                console.log(this.show );
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>

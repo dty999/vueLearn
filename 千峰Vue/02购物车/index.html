@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./commont.css">
+</head>
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="" id="" @input = 'checked'>
+                    </td>
+                    <td>商品ID</td>
+                    <td>商品名称</td>
+                    <td>商品单价</td>
+                    <td>商品数量</td>
+                    <td>删除</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item,index in list">
+                    <td>
+                        <input type="checkbox" name="" id="">
+
+                    </td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <button @click = 'handleSub(index)'>-</button>
+                        {{ item.count }}
+                        <button @click = 'handleAdd(index)'>+</button>
+                    </td>
+                    <td>
+                        <button @click = 'deleteOne(index)'>删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>总价格: {{ prices }}</div>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script src="./index.js"></script>
+</html>

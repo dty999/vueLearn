@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ prices }}
+        
+        <button @click = 'add'>添加</button>
+        <br>
+        {{time}}
+        {{time1()}}
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                package1: [
+                    {
+                        name: 'iphone5',
+                        price: 1000,
+                        count: 2
+                    },
+                    {
+                        name: 'iphone6',
+                        price: 2000,
+                        count: 3
+                    },
+                ],
+                package2: [
+                    {
+                        name: 'dell',
+                        price: 3000,
+                        count: 2
+                    },
+                    {
+                        name: 'mac',
+                        price: 4000,
+                        count: 1
+                    },
+                ]
+            },
+            methods: {
+                add(){
+                    this.package1.push({
+                        name: 'mi',
+                        price: 1000,
+                        count: 1
+                    })
+                }
+                ,time1(){
+                    return Date.now()
+                }
+            },
+            computed: {
+                prices: function () {
+                    var prices = 0
+                    for (var i = 0; i < this.package1.length; i++) {
+                        prices += this.package1[i].price * this.package1[i].count
+                    }
+                    for (var i = 0; i < this.package2.length; i++) {
+                        prices += this.package2[i].price * this.package2[i].count
+                    }
+
+                    return prices
+                    // return Date.now()
+                },
+                time:function(){
+                    return Date.now()
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
