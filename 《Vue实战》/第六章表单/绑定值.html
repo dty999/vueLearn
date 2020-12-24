@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <!-- <input type="radio" v-model = 'picked' :value='value'> -->
+        <!-- <input type="checkbox" v-model = 'toogle' :true-value = 'value1' :false-value = "value2"> -->
+        <input type="text" v-model.lazy="message" @input='handleInput'>
+    </div>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     //love
+     var vm = new Vue({
+        el: '#app',
+        data: {
+            // picked:false,
+            // value:123
+
+            // toogle:false,
+            // value1:'a',
+            // value2:'b'
+            message:''
+        },
+        methods: {
+            handleInput(e){
+                console.log(this.message)
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <select name="" id="" v-model="check" multiple>
+            <option>HTML</option>
+            <option value="js">JS</option>
+            <!-- 如果不设置value默认v-model的值直接匹配文本,如果设置了value -->
+            <option>CSS</option>
+        </select>
+    </div>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {
+            check:['CSS','HTML','js']
+        },
+        methods: {}
+     });
+    </script>
+</body>
+
+</html>

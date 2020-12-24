@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <input type="checkbox" v-model = 'checking' id="HTML">
+        <label for="#HTML">{{ checking }}</label>
+        <!-- <input type="radio" v-model = 'radio1'>
+        单选 -->
+        <!-- 单选框单独使用只能用:checked绑定一个布尔值 -->
+        <!-- 复选框单独使用 -->
+        <!-- 用:checked绑定不能实现双向绑定:选中状态改变时不会影响到数据,只有数据改变会影响选中状态 -->
+        <!-- 这就可以理解单独用单选框时为什么不能用v-model双向绑定了,单选框单独使用一旦选择了再点击无法取消选择 -->
+
+        <!-- <input type="checkbox" :checked = 'checking' id="HTML"> -->
+        <!-- 多个复选框 -->
+        <br>
+        <input type="checkbox" v-model = 'checks' value="HTML">HTML
+        <input type="checkbox" v-model = 'checks' value="JS">JS
+        <input type="checkbox" v-model = 'checks' value="CSS">CSS
+        <div>{{ checks }}</div>
+    </div>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {
+            checking:true,
+            radio1:true,
+            checks:['HTML']
+            // 多个复选框一组,v-model的值得是一个数组
+        },
+        methods: {}
+     });
+    </script>
+</body>
+
+</html>

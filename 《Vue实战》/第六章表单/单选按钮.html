@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <input type="radio" value = 'HTML' v-model = 'picked'>
+        <label for="">HTML</label>
+        <input type="radio" value = 'CSS' v-model = 'picked'>
+        <label for="">CSS</label>
+    </div>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {
+            selected:"CSS"
+        },
+        methods: {},
+        computed:{
+            picked:function(){
+                return this.selected
+            }
+        }
+     });
+    //  一组单选按钮:就是要v-model是同一个变量或计算属性,如果不同就是不同的组,无法实现互斥单选
+    //如果v-model代表的值和当前单选框的value相同就表示选中
+    </script>
+</body>
+
+</html>
