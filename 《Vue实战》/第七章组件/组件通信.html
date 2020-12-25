@@ -10,7 +10,7 @@
 
 <body>
     <div id ="app">
-        <cpn @sonclick='handleSonClick'></cpn>
+        <cpn @son-click='handleSonClick'></cpn>
     </div>
     <template id="cpn">
         <div>
@@ -31,7 +31,7 @@
             },
             methods: {
                 handleClick(id){
-                    this.$emit('sonclick',id)
+                    this.$emit('son-click',id)
                     // console.log(id);
                 }  
             },
@@ -42,7 +42,7 @@
         data: {},
         methods: {
             handleSonClick(id){
-                console.log(id);
+                console.log('收到'+id);
             }
         },
         components:{
