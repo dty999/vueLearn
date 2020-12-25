@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id ="app">
+        <cpn ref='aaa'>
+            <h1>aaaaa</h1>
+        </cpn>
+        <cpn ref='ccc'>
+
+        </cpn>
+        <cpn ref='bbb'>
+
+        </cpn>
+        <button @click='handleBtn'>btn</button>
+    </div>
+    <template id="cpn">
+        <div>我是cpn组件</div>
+    </template>
+    <script>
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            handleBtn:function(){
+                console.log(this.$refs['bbb']);
+            }
+        },
+        components:{
+            cpn:{
+                template:'#cpn'
+            }
+        }
+     });
+    </script>
+</body>
+
+</html>
