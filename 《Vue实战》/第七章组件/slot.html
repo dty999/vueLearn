@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-$END$
+    <div id ="app">
+        <cpn>
+            <button slot="aaa">点我</button>
+        </cpn>
+        <cpn>
+            <button slot="bbb">点我2</button>
+        </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <slot name='aaa'></slot>
+            <slot name='bbb'></slot>
+        </div>
+    </template>
+
+    <script>
+     //创建Vue实例,得到 ViewModel
+     var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        components:{
+            cpn:{
+                template:'#cpn'
+            }
+        }
+     });
+    </script>
 </body>
+
 </html>

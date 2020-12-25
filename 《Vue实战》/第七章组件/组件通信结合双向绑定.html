@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myVue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :number1='number1' :number2='number2' @changenumber1='handelNumber1'>
+            
+        </cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            {{number1}}
+            <input type="text" v-model='cnum1' >
+            cpn:{{cnum1}}---{{num1}}
+            <input type="text" v-model='cnum2' >
+            ---{{number2}}
+        </div>
+    </template>
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                number1: 1,
+                number2: 2
+            },
+            methods: {
+                handelNumber1(value){
+                    this.number2 = value
+                }
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    props: {
+                        number1: Number,
+                        number2: Number,
+                        
+                    },
+                    data:function(){
+                        return{
+                            num1:this.number1,
+                            num2:this.number2,
+                            num3:0,
+                            num4:0
+                        }
+                    },
+                    computed: {
+                        // 直接当做普通属性调用不加括号
+                        // 任何data中数据变化立即重新计算
+                        // 计算属性会缓存
+                        cnum1:{
+                            get(){
+                                return this.num3
+                            },
+                            set(value){
+                                this.num3 = value
+                                this.num1 = value*100
+                                this.$emit('changenumber1',value/100)
+                            }
+                        },
+                        cnum2:{
+                            get(){
+                                return this.num4
+                            },
+                            set(value){
+                                this.num4 = value
+                                this.num2 = value*100
+                                this.$emit('changenumber2',value/100)
+                            }
+                        }
+                        
+                    },
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>
